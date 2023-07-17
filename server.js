@@ -14,6 +14,7 @@ require('./config/database');
 require('./config/passport');
 
 const indexRouter = require('./routes/index');
+const printRouter = require('./routes/print');
 
 var app = express();
 
@@ -44,6 +45,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', indexRouter);
+app.use("/prints", printRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
