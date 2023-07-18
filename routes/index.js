@@ -1,7 +1,9 @@
 var express = require("express");
 var router = express.Router();
 const passport = require("passport");
+const printController = require('../controllers/print')
 
+module.exports = router;
 
 router.get("/", function (req, res, next) {
   res.render("index", { title: "" });
@@ -39,4 +41,3 @@ router.get("/logout", function (req, res) {
   });
 });
 
-module.exports = router;
