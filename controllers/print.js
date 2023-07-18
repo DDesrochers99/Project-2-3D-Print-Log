@@ -1,11 +1,17 @@
+// controllers/print.js
+const Print = require("../models/prints");
 
-
-
-
-exports.home = async function(req,res) {
-    res.render("index", { title: "" });
+const createPrint = async (req, res) => {
+  try {
+    const print = new Print(req.body);
+    const savedPrint = await print.save();
+    res.redirect("/prints/aprints"); 
+  } catch (err) {
+    res.render("error", { error: "Internal server error" }); 
+  }
 };
 
-async function index(req, res) {
-  res.render("prints/aprints", { title: "" });
+
+module.exports = {
+    createPrint,
 };
