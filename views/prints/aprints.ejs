@@ -1,5 +1,33 @@
 <%- include('../partials/header') %>
 
-<h1>Finally</h1>
-  
+<table id="list">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Comments</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% prints.forEach((print) => { %>
+      <tr>
+        <td><%= print.title %></td>
+        <td><%= print.startDate.toLocaleString('en-US', { timeZone: 'UTC' }) %></td>
+        <td><%= print.endDate.toLocaleString('en-US', { timeZone: 'UTC' }) %></td>
+        <td><%= print.comments %></td>
+        <td>
+            <a id="deatailsButton" href="/prints/<%= print._id %>">DETAILS</a>
+        </td>
+        <td>
+            <form action="/prints/<%= print._id %>?_method=DELETE" method="POST" class="delete-form">
+                <button id="submitButton" type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+
 <%- include('../partials/footer') %>
