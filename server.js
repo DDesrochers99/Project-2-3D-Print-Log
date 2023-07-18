@@ -16,6 +16,7 @@ require("./config/passport");
 const indexRouter = require("./routes/index");
 const printRouter = require("./routes/print");
 
+
 var app = express();
 
 // view engine setup

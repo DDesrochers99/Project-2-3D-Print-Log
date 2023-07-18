@@ -1,12 +1,13 @@
+// routes/print.js
+
 const express = require("express");
 const router = express.Router();
+const printController = require("../controllers/print");
 
-router.get("/aprints", function (req, res) {
-  res.render("prints/aprints", { title: "All Prints" });
-});
+router.get("/aprints", printController.getAllPrints);
 
-router.get("/new", function (req, res) {
-  res.render("prints/new", { title: "Add Print" });
-});
+router.get("/new", printController.createPrint);
+
+router.post("/", printController.create);
 
 module.exports = router;

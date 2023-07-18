@@ -1,17 +1,28 @@
-// controllers/print.js
 const Print = require("../models/prints");
 
-const createPrint = async (req, res) => {
+const getAllPrints = (req, res) => {
+  res.render("prints/aprints", { title: "All Prints" });
+};
+
+const createPrint = (req, res) => {
+  res.render("prints/new", { title: "Add Print" });
+};
+
+const create = async (req, res) => {
+  for (let key in req.body) {
+    if (req.body[key] === "") delete req.body[key];
+  }
   try {
-    const print = new Print(req.body);
-    const savedPrint = await print.save();
-    res.redirect("/prints/aprints"); 
+    const newPrint = await Print.create(req.body);
+    res.redirect(`/prints/aprints`, );
   } catch (err) {
-    res.render("error", { error: "Internal server error" }); 
+    console.log(err);
+    res.render("prints/new", { errorMsg: err.message });
   }
 };
 
-
 module.exports = {
-    createPrint,
+  getAllPrints,
+  createPrint,
+  create,
 };

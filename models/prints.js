@@ -1,4 +1,3 @@
-// model/prints.js
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -29,21 +28,20 @@ const reviewSchema = new Schema(
 
 const printSchema = new Schema(
   {
-    title: { type: String, required: true },
+    title: {
+      type: String,
+      required: true,
+    },
     startDate: {
       type: Date,
-      default: function () {
-        return new Date().getDate();
-      },
+      default: Date.now,
     },
     endDate: {
       type: Date,
-      default: function () {
-        return new Date().getDate();
-      },
+      default: Date.now,
     },
     comments: {
-         type: String, 
+      type: String,
     },
     reviews: [reviewSchema],
   },
@@ -52,5 +50,6 @@ const printSchema = new Schema(
   }
 );
 
-// Compile the schema into a model and export it
-module.exports = mongoose.model("Print", printSchema);
+
+const Print = mongoose.model("Print", printSchema);
+module.exports = Print;
