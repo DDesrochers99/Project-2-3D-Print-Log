@@ -3,6 +3,7 @@
 <table id="list">
   <thead>
     <tr>
+      <th>User</th>
       <th>Title</th>
       <th>Start Date</th>
       <th>End Date</th>
@@ -13,6 +14,8 @@
   <tbody>
     <% prints.forEach((print) => { %>
       <tr>
+        <td>Placeholder for pic</td>
+        <!-- <td class="review-user"><img alt="avatar" src="<%= print.userAvatar %>" referrerpolicy="no-referrer" ><%= print.userName %></td> -->
         <td><%= print.title %></td>
         <td><%= print.startDate.toLocaleString('en-US', { timeZone: 'UTC' }) %></td>
         <td><%= print.endDate.toLocaleString('en-US', { timeZone: 'UTC' }) %></td>
