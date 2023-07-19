@@ -17,3 +17,12 @@ span {
   color: rgb(2, 71, 23);
   font-size: large;
 }
+#submitButton {
+  margin-top: 10px;
+}
+
+.review-user img {
+  border-radius: 50%;
+  height: 45px;
+  margin-right: 10px;
+}

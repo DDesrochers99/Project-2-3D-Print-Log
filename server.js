@@ -49,8 +49,8 @@ app.use(function (req, res, next) {
 });
 
 app.use("/", indexRouter);
-app.use("/prints/:id/reviews", reviewRouter);
 app.use("/prints", printRouter);
+app.use("/", reviewRouter);
 
 
 app.use(function (req, res, next) {
