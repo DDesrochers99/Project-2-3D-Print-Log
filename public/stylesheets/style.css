@@ -1,4 +1,6 @@
-
+/* * {
+  font-family: 'VT323', monospace;
+} */
 span {
    display: flex;
    justify-content: center;
@@ -6,14 +8,7 @@ span {
    position: fixed;
    bottom: 0;
 }
-#homepageImg {
-  max-width: 800px;
-  max-height: 650px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-}
+
 #deatailsButton {
   margin-top: 20px;
 }
@@ -24,8 +19,22 @@ span {
   color: rgb(2, 71, 23);
   font-size: large;
 }
+#homepageImg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire container */
+}
 #submitButton, #reviewButton {
   margin-top: 10px;
+}
+#updateButton {
+  margin: 5px;
+}
+#survy:hover {
+  color: rgb(250, 0, 0);
+}
+#survy {
+  font-size: 35px;
 }
 .delete-button-container {
   display: flex;
@@ -45,7 +54,16 @@ span {
   height: 50px;
   margin-right: 10px;
 }
-
-#updateButton {
-  margin: 5px;
+.review-container {
+  max-width: auto; 
+  margin-right: 80px; 
+  margin-left: 80px;
 }
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px; 
+  overflow: hidden;
+}
+

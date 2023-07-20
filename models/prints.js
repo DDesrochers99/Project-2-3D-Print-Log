@@ -49,6 +49,5 @@ const printSchema = new Schema(
   }
 );
 
-
 const Print = mongoose.model("Print", printSchema);
 module.exports = Print;

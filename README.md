@@ -1,6 +1,7 @@
 # 3D Print Logger: Unleash Creativity in the World of 3D Printing!
 
 Welcome to 3D Print Logger, your ultimate Full Stack CRUD app tailored exclusively for 3D printing enthusiasts like you! Step into a world of boundless creativity, where you can share your remarkable 3D prints, connect with like-minded creators, and showcase your intricate models with pride.
+[Visit the 3D Print Log](https://print-log-3d-de5175324977.herokuapp.com/)
 
 ## Embrace the Artistry of 3D Printing
 
@@ -35,3 +36,4 @@ Whether you're a beginner exploring the wonders of 3D printing or an experienced
 1. **Print Time Calculation Function:** We understand the importance of optimizing your 3D printing processes. This upcoming feature will allow you to estimate the time required for each print accurately, streamlining your workflow like never before.
 2. **Status Options - Success, Failed, Canceled:** To enable better project management, you'll soon be able to label your prints as "Success," "Failed," or "Canceled" upon completion. This valuable insight will help you analyze your progress and make informed decisions for future projects.
 
+[Visit the 3D Print Log](https://print-log-3d-de5175324977.herokuapp.com/)

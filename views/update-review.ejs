@@ -1,15 +1,28 @@
 <%- include('./partials/header') %>
 
 <section id="update-review-page" class="container mt-4">
-<div class="card-body">
-  <h2 class="card-title">Update Review</h2>
-  <form id="update-review-form" method="POST" action="/prints/<%= print._id %>/reviews/<%= review._id %>/update">
-    <div class="form-group">
-      <textarea class="form-control" name="content"><%= review.content %></textarea>
+  <div class="card-body">
+    <h2 class="card-title">Update Review</h2>
+    <div class="row">
+      <form
+        id="update-review-form"
+        method="POST"
+        action="/prints/<%= print._id %>/reviews/<%= review._id %>/update"
+        class="w-100"
+      >
+        <div class="form-group">
+          <textarea class="form-control" name="content">
+<%= review.content %></textarea
+          >
+        </div>
+        <div class="col-md-12 d-grid">
+          <button id="submitButton" type="submit" class="btn btn-primary">
+            Update Review
+          </button>
+        </div>
+      </form>
     </div>
-    <button type="submit" class="btn btn-primary">Update Review</button>
-  </form>
-</div>
+  </div>
 </section>
 
 <%- include('./partials/footer') %>

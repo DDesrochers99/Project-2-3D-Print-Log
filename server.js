@@ -17,7 +17,6 @@ const indexRouter = require("./routes/index");
 const printRouter = require("./routes/print");
 const reviewRouter = require("./routes/review");
 
-
 var app = express();
 
 // view engine setup
@@ -42,7 +41,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 app.use(function (req, res, next) {
   res.locals.user = req.user;
   next();
@@ -52,14 +50,11 @@ app.use("/", indexRouter);
 app.use("/prints", printRouter);
 app.use("/", reviewRouter);
 
-
 app.use(function (req, res, next) {
   next(createError(404));
 });
 
-
 app.use(function (err, req, res, next) {
-
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
   res.status(err.status || 500);

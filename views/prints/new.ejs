@@ -1,34 +1,47 @@
 <%- include('../partials/header') %>
 
 <div class="container">
-        <h1 class="display-4 text-center mt-3 mb-4">Create New Print</h1>
+  <h1 class="display-4 text-center mt-3 mb-4">Create New Print</h1>
 </div>
 
 <div class="container">
   <form id="new-form" action="/prints" method="POST">
     <div class="form-group">
       <label for="title">Title:</label>
-      <input type="text" class="form-control" id="title" name="title">
+      <input type="text" class="form-control" id="title" name="title" />
     </div>
-    <div class="form-group", class="d-grid gap-2">
+    <div class="form-group d-grid gap-2">
       <label for="startDate">Start Date:</label>
-      <input type="datetime-local" class="form-control" id="startDate" name="startDate">
+      <input
+        type="datetime-local"
+        class="form-control"
+        id="startDate"
+        name="startDate"
+      />
     </div>
     <div class="form-group">
       <label for="endDate">End Date:</label>
-      <input type="datetime-local" class="form-control" id="endDate" name="endDate">
+      <input
+        type="datetime-local"
+        class="form-control"
+        id="endDate"
+        name="endDate"
+      />
     </div>
     <div class="form-group">
       <label for="comments">Comments:</label>
-      <input type="text" class="form-control" id="comments" name="comments">
-      <div class="form-group">
-        <label for="picture">Picture Link (host on imgur)</label>
-        <input type="text" class="form-control" id="picture" name="picture">
-      </div>
+      <input type="text" class="form-control" id="comments" name="comments" />
     </div>
-    <button id= submitButton type="submit" class="btn btn-warning">Add Print</button>
+    <div class="form-group">
+      <label for="picture">Picture Link (host on imgur)</label>
+      <input type="text" class="form-control" id="picture" name="picture" />
+    </div>
+    <div class="form-group d-grid">
+      <button id="submitButton" type="submit" class="btn btn-warning">
+        Add Print
+      </button>
+    </div>
   </form>
 </div>
-
 
 <%- include('../partials/footer') %>

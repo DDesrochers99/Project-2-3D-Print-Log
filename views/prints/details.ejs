@@ -1,37 +1,38 @@
 <%- include('../partials/header') %>
 
+<section id="show-page" class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Title: 
+        <%= print.title %></h2>
+      <p class="card-text">Start Date: 
+        <%= print.startDate.toLocaleString('en-US', { timeZone: 'UTC' }) %></p>
+      <p class="card-text">End Date: 
+        <%= print.endDate.toLocaleString('en-US', { timeZone: 'UTC' }) %></p>
+      <p class="card-text">Comments: 
+        <%= print.comments %></p>
+      <p class="card-text">Picture: 
+        <img id="printImg" src="<%= print.picture %>"></td>
+    </div>
+  </div>
+</section>
 
-  <section id="show-page" class="container mt-4">
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">Title:
-          <%= print.title %>
-        </h2>
-        <p class="card-text">Start Date:
-          <%= print.startDate.toLocaleString('en-US', { timeZone: 'UTC' }) %>
-        </p>
-        <p class="card-text">End Date:
-          <%= print.endDate.toLocaleString('en-US', { timeZone: 'UTC' }) %>
-        </p>
-        <p class="card-text">Comments:
-          <%= print.comments %>
-        </p>
-        <p class="card-text">Picture:
-          <img id="printImg" src="<%= print.picture %>"></td>
+<br><br>
+<div class="review-container">
+<h2>Reviews:</h2>
+<% if (user) { %>
+  <form id="add-review-form" class="mb-4" method="POST" action="/prints/<%= print._id %>/review">
+    <div class="form-group">
+      <textarea class="form-control" name="content"></textarea>
+    </div>
+    <div class="row">
+      <div class="col-12 d-grid">
+        <input id="reviewButton" type="submit" class="btn btn-primary" value="Add Review">
       </div>
     </div>
-  </section>
+  </form>
+<% } %>
 
-  <br><br>
-  <h2>Reviews:</h2>
-  <% if (user) { %>
-    <form id="add-review-form" class="mb-4" method="POST" action="/prints/<%= print._id %>/review">
-      <div class="form-group">
-        <textarea class="form-control" name="content"></textarea>
-        <input id="reviewButton" type="submit" class="btn btn-primary" value="Add Review">
-    </form>
-    </div>
-    <% } %>
       <% if (print.reviews.length) { %>
         <table class="table table-striped table-dark">
           <thead>
@@ -47,7 +48,8 @@
               <% print.reviews.forEach(function(r) { %>
 
                 <tr>
-                  <td class="review-user-container"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer">
+                  <td class="review-user-container"><img alt="avatar" src="<%= r.userAvatar %>"
+                      referrerpolicy="no-referrer">
                     <%= r.userName %>
                   </td>
                   <td>
@@ -80,5 +82,6 @@
         <% } else { %>
           <h5>No Reviews Yet</h5>
           <% } %>
+          </div>
             <script src="/controllers/print.js"></script>
-            <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

@@ -1,7 +1,5 @@
 const Print = require("../models/prints");
 
-
-
 const createPrint = (req, res) => {
   res.render("prints/new", { title: "Add Print" });
 };
@@ -40,7 +38,6 @@ const deletePrint = async (req, res) => {
   }
 };
 
-
 const getPrintDetails = async (req, res) => {
   try {
     const printId = req.params.id;
@@ -48,7 +45,7 @@ const getPrintDetails = async (req, res) => {
     if (!print) {
       return res.status(404).send("Print not found");
     }
-    res.render("prints/details", { title: "Print Details", print, });
+    res.render("prints/details", { title: "Print Details", print });
   } catch (error) {
     console.error(error);
     res.status(500).send("An error occurred");
