@@ -12,17 +12,34 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
+}
+#deatailsButton {
+  margin-top: 20px;
+}
+#printImg {
+  max-height: 80px;
 }
 #designedBy {
   color: rgb(2, 71, 23);
   font-size: large;
 }
-#submitButton {
+#submitButton, #reviewButton {
   margin-top: 10px;
+}
+.delete-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .review-user img {
   border-radius: 50%;
   height: 45px;
   margin-right: 10px;
+}
+
+#updateButton {
+  margin: 5px;
 }

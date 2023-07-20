@@ -6,7 +6,7 @@ const passport = require("passport");
 module.exports = router;
 
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "" });
+  res.render("index", { title: "3D Print Logger" });
 });
 
 

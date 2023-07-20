@@ -1,6 +1,10 @@
 <%- include('../partials/header') %>
 
 <div class="container">
+        <h1 class="display-4 text-center mt-4 mb-2">Create New Print</h1>
+</div>
+
+<div class="container">
   <form id="new-form" action="/prints" method="POST">
     <div class="form-group">
       <label for="title">Title:</label>
@@ -14,8 +18,13 @@
       <label for="endDate">End Date:</label>
       <input type="datetime-local" class="form-control" id="endDate" name="endDate">
     </div>
+    <div class="form-group">
       <label for="comments">Comments:</label>
       <input type="text" class="form-control" id="comments" name="comments">
+      <div class="form-group">
+        <label for="picture">Picture Link (host on imgur)</label>
+        <input type="text" class="form-control" id="picture" name="picture">
+      </div>
     </div>
     <button id= submitButton type="submit" class="btn btn-warning">Add Print</button>
   </form>

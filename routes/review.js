@@ -7,4 +7,10 @@ router.post("/prints/:id/review", ensureLoggedIn, reviewController.create);
 
 router.delete('/reviews/:id', ensureLoggedIn, reviewController.delete);
 
+router.put("/prints/:printId/reviews/:reviewId", ensureLoggedIn, reviewController.updateReview);
+
+router.get("/prints/:printId/reviews/:reviewId/update",ensureLoggedIn, reviewController.showUpdateReview);
+
+router.post("/prints/:printId/reviews/:reviewId/update",reviewController.updateReview);
+
 module.exports = router;

@@ -1,60 +1,84 @@
 <%- include('../partials/header') %>
 
-<section id="show-page">
-  <section id="show-page">
-  <div>Title: 
-    <%= print.title %></div>
-  <div>Start Date: 
-    <%= print.startDate.toLocaleString('en-US', { timeZone: 'UTC' }) %></div>
-  <div>End Date: 
-    <%= print.endDate.toLocaleString('en-US', { timeZone: 'UTC' }) %></div>
-  <div>Comments: 
-    <%= print.comments %></div>
-</section>
 
-<br><br><h2>Reviews</h2>
-<% if (user) { %>
-<form id="add-review-form" method="POST"
-  action="/prints/<%= print._id %>/review">
-  <textarea name="content"></textarea>
-  <input type="submit" value="Add Review">
-</form>
-<% } %>
+  <section id="show-page" class="container mt-4">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Title:
+          <%= print.title %>
+        </h2>
+        <p class="card-text">Start Date:
+          <%= print.startDate.toLocaleString('en-US', { timeZone: 'UTC' }) %>
+        </p>
+        <p class="card-text">End Date:
+          <%= print.endDate.toLocaleString('en-US', { timeZone: 'UTC' }) %>
+        </p>
+        <p class="card-text">Comments:
+          <%= print.comments %>
+        </p>
+        <p class="card-text">Picture:
+          <img id="printImg" src="<%= print.picture %>"></td>
+      </div>
+    </div>
+  </section>
 
-<% if (print.reviews.length) { %>
-  <table>
-    <thead>
-      <tr>
-        <th>User</th>
-        <th>Review</th>
-        <th>Date</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% let total = 0 %>
-      <% print.reviews.forEach(function(r) { %>
-        <% total += r.rating %>
-        <tr>
-          <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" ><%= r.userName %></td>
-          <td><%= r.content %></td>
-          <td><%= r.createdAt.toLocaleDateString() %></td>
-          <td>
-            <% if (user?._id.equals(r.user)) { %>
-              <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete</button>
-              </form>
-            <% } %>
-          </td>
-        </tr>
-      <% }); %>
-      <tr>
-        <td colspan="3"></td>
-      </tr>
-    </tbody>
-  </table>
-<% } else { %>
-  <h5>No Reviews Yet</h5>
-<% } %>
+  <br><br>
+  <h2>Reviews:</h2>
+  <% if (user) { %>
+    <form id="add-review-form" class="mb-4" method="POST" action="/prints/<%= print._id %>/review">
+      <div class="form-group">
+        <textarea class="form-control" name="content"></textarea>
+        <input id="reviewButton" type="submit" class="btn btn-primary" value="Add Review">
+    </form>
+    </div>
+    <% } %>
+      <% if (print.reviews.length) { %>
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Review</th>
+              <th>Date</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% let total=0 %>
+              <% print.reviews.forEach(function(r) { %>
 
-<%- include('../partials/footer') %>
+                <tr>
+                  <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer">
+                    <%= r.userName %>
+                  </td>
+                  <td>
+                    <%= r.content %>
+                  </td>
+                  <td>
+                    <%= r.createdAt.toLocaleDateString() %>
+                  </td>
+                  <td>
+                    <div class="delete-button-container">
+                      <% if (user?._id.equals(r.user)) { %>
+                        <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                          <button id="updateButton" type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                        <div>
+                          <a class="delete-button-container" id="updateButton"
+                            href="/prints/<%= print._id %>/reviews/<%= r._id %>/update">
+                            <button class="btn btn-warning btn-sm">Update</button>
+                          </a>
+                        </div>
+                    </div>
+                    <% } %>
+                  </td>
+                </tr>
+                <% }); %>
+                  <tr>
+                  </tr>
+          </tbody>
+        </table>
+        <% } else { %>
+          <h5>No Reviews Yet</h5>
+          <% } %>
+            <script src="/controllers/print.js"></script>
+            <%- include('../partials/footer') %>

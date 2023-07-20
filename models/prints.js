@@ -22,6 +22,9 @@ const reviewSchema = new Schema(
 
 const printSchema = new Schema(
   {
+    picture: {
+      type: String,
+    },
     title: {
       type: String,
       required: true,
@@ -29,10 +32,12 @@ const printSchema = new Schema(
     startDate: {
       type: Date,
       default: Date.now,
+      required: true,
     },
     endDate: {
       type: Date,
       default: Date.now,
+      required: true,
     },
     comments: {
       type: String,
