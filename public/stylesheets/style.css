@@ -34,9 +34,15 @@ span {
   height: 100%;
 }
 
-.review-user img {
+.review-user-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  gap: 10px;
+}
+
+.review-user-container img {
   border-radius: 50%;
-  height: 45px;
+  height: 50px;
   margin-right: 10px;
 }
 
