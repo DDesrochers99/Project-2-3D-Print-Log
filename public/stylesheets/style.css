@@ -1,6 +1,6 @@
-/* * {
-  font-family: 'VT323', monospace;
-} */
+* {
+  font-family: 'Crete Round', serif;
+} 
 span {
    display: flex;
    justify-content: center;
@@ -8,7 +8,9 @@ span {
    position: fixed;
    bottom: 0;
 }
-
+#aTable {
+  font-size: 20px;
+}
 #deatailsButton {
   margin-top: 20px;
 }
